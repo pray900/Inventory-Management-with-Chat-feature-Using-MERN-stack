@@ -1,0 +1,108 @@
+@import './variables';
+@import 'bootstrap/scss/bootstrap';
+
+// CSS custom properties for the plain-CSS component files (Header, Sidebar,
+// Loader, Chat, Details) that aren't using Bootstrap utility classes.
+:root {
+    --accent: #{$primary};
+    --accent-hover: #{$link-hover-color};
+    --surface: #ffffff;
+    --page-bg: #{$body-bg};
+    --border: #{$border-color};
+    --text: #{$body-color};
+    --text-secondary: #{$secondary};
+
+    // Chat messenger bubble colors (previously referenced but never defined)
+    --msger-bg: #f8fafc;
+    --left-msg-bg: #ffffff;
+    --right-msg-bg: var(--accent);
+}
+
+body {
+    background-color: var(--page-bg);
+    color: var(--text);
+}
+
+.error {
+    color: var(--bs-danger);
+    font-size: 0.875rem;
+    margin: 0.25rem 0 0.75rem;
+}
+
+.app-shell {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main {
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+}
+
+.content {
+    flex: 1 1 auto;
+    padding: 1.5rem 2rem;
+    max-width: 900px;
+}
+
+.content h2 {
+    margin-bottom: 0.25rem;
+}
+
+.content > p:first-of-type {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+// Every form in the app consistently uses className="form-group" — style it
+// once here as a card instead of repeating card markup in every component.
+.form-group {
+    max-width: 480px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--bs-border-radius-lg);
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-top: 0.85rem;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.form-group label:first-of-type {
+    margin-top: 0;
+}
+
+// Checkbox + label pairs (e.g. "Discounted Item") stay inline instead of
+// being forced to the block layout meant for "Label above input" fields.
+.form-group input[type="checkbox"] {
+    margin-top: 0.85rem;
+}
+
+.form-group input[type="checkbox"] + label {
+    display: inline;
+    margin-left: 0.35rem;
+}
+
+.form-group input[type="radio"] {
+    margin-right: 0.25rem;
+}
+
+.form-group hr {
+    border-color: var(--border);
+    margin: 1.25rem 0;
+}
+
+.table-responsive-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--bs-border-radius-lg);
+    padding: 1rem;
+}
