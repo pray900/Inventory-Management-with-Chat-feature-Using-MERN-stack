@@ -1,0 +1,11 @@
+.scrollArea{
+    height: 400px;
+    overflow-y: auto;
+}
+
+.review-card {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
