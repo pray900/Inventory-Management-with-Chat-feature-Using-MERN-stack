@@ -17,6 +17,10 @@ const errorHandler = require("./middlewares/errorHandler");
 const initChatSocket = require("./sockets/chat.socket");
 
 const app = express();
+// Render terminates TLS at a proxy, so the real client IP arrives in
+// X-Forwarded-For. Without this, express-rate-limit sees every request as
+// coming from one address and the auth limiter locks out all users at once.
+app.set("trust proxy", 1);
 const server = http.createServer(app); // get server instead of app.listen(port) because we need server for chat function
 const corsOrigins = configs.CORS_ORIGIN.split(",").map((s) => s.trim());
 
