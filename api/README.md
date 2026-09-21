@@ -1,20 +1,21 @@
-# Marketly — API
+# Marketly API
 
-Express + MongoDB backend. Also hosts a Socket.IO server (chat) on the same port.
+Express and MongoDB backend. Also hosts the Socket.IO chat server on the same port.
 
-## Setup
+Full documentation lives in the root [README.md](../README.md). A line by line explanation of every file in this folder is in [CODE_WALKTHROUGH.md](../CODE_WALKTHROUGH.md#backend).
 
-```
+## Quick start
+
+```bash
 npm install
-cp .env.example .env   # fill in JWT_SECRET at minimum; SMTP_* to send real email
+cp .env.example .env   # set JWT_SECRET at minimum
 npm run dev
 ```
 
-Requires MongoDB reachable at `MONGO_URI` (see `.env.example`), and the web app (`../web`) running at `CORS_ORIGIN`/`FRONTEND_URL`.
+Needs MongoDB reachable at `MONGO_URI`, and the web app running at whatever `CORS_ORIGIN` points to.
 
-Until `SMTP_HOST` is set, password-reset and contact emails are logged to the console instead of sent — the rest of those features work as normal.
+Until `SMTP_HOST` is set, password reset and contact emails are logged to the console rather than sent. Both features still work end to end, you just read the link out of the terminal.
 
 ## Scripts
 
-- `npm run dev` — start with nodemon (auto-restart on change)
-- `npm start` — start once, no auto-restart
+`npm run dev` starts with nodemon and restarts on every change. `npm start` runs it once, which is what production uses.
